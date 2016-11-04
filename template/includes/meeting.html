@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div class="vevent">
+		<p>
+			<abbr class="dtstart" title="{{ meeting.datetime|datatimeformat("%Y-%m-%dT%H:%M00") }}">
+				{{ meeting.datetime|datetimeformat("%A %B %d, %Y, %H:%M") }}
+			</abbr>
+			at
+			<span class="location">
+				{{ meeting.venue }}
+			</span>
+		</p>
+		<p class="summary">
+			<a href="{{ url_for('meeting',date=meeting.path) }}">{{ meeting.title }}</a>
+		</p>
+		<div class="description">{{ meeting.speaker }}</div>
+	</div>
+</body>
+</html>
